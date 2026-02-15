@@ -15,9 +15,7 @@ namespace DesignPatternChallenge
             Message = $"✅ Seu pedido {orderNumber} foi confirmado!";
             UseTemplate = true;
 
-            Console.WriteLine($"💬 Enviando WhatsApp para {PhoneNumber}");
-            Console.WriteLine($"   Mensagem: {Message}");
-            Console.WriteLine($"   Template: {UseTemplate}");
+            PrintNotification();
         }
 
         public void SendPaymentReminder(string recipient, decimal amount)
@@ -26,9 +24,7 @@ namespace DesignPatternChallenge
             Message = $"Você tem um pagamento pendente de R$ {amount:N2}";
             UseTemplate = true;
 
-            Console.WriteLine($"💬 Enviando WhatsApp para {PhoneNumber}");
-            Console.WriteLine($"   Mensagem: {Message}");
-            Console.WriteLine($"   Template: {UseTemplate}");
+            PrintNotification();
         }
 
         public void SendShippingUpdate(string recipient, string trackingCode)
@@ -37,6 +33,11 @@ namespace DesignPatternChallenge
             Message = $"📦 Pedido enviado! Rastreamento: {trackingCode}";
             UseTemplate = true;
 
+            PrintNotification();
+        }
+
+        public void PrintNotification()
+        {
             Console.WriteLine($"💬 Enviando WhatsApp para {PhoneNumber}");
             Console.WriteLine($"   Mensagem: {Message}");
             Console.WriteLine($"   Template: {UseTemplate}");

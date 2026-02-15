@@ -8,7 +8,6 @@ namespace DesignPatternChallenge
         public string Message { get; set; }
         public int Badge { get; set; }
 
-        public void Send() { }
         public void SendOrderConfirmation(string recipient, string orderNumber)
         {
             DeviceToken = recipient;
@@ -16,9 +15,7 @@ namespace DesignPatternChallenge
             Message = $"Pedido {orderNumber} confirmado!";
             Badge = 1;
 
-            Console.WriteLine($"🔔 Enviando Push para dispositivo {DeviceToken}");
-            Console.WriteLine($"   Título: {Title}");
-            Console.WriteLine($"   Mensagem: {Message}");
+            PrintNotification();
         }
 
         public void SendPaymentReminder(string recipient, decimal amount)
@@ -28,9 +25,7 @@ namespace DesignPatternChallenge
             Title = "Pagamento Pendente";
             Badge = 1;
 
-            Console.WriteLine($"🔔 Enviando Push para dispositivo {DeviceToken}");
-            Console.WriteLine($"   Título: {Title}");
-            Console.WriteLine($"   Mensagem: {Message}");
+            PrintNotification();
         }
 
         public void SendShippingUpdate(string recipient, string trackingCode)
@@ -40,6 +35,11 @@ namespace DesignPatternChallenge
            Message = $"Rastreamento: {trackingCode}";
            Badge = 1;
 
+            PrintNotification();
+        }
+
+        public void PrintNotification()
+        {
             Console.WriteLine($"🔔 Enviando Push para dispositivo {DeviceToken}");
             Console.WriteLine($"   Título: {Title}");
             Console.WriteLine($"   Mensagem: {Message}");

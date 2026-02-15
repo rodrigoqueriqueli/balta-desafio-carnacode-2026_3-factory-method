@@ -115,6 +115,8 @@ namespace DesignPatternChallenge
             // Cliente 4 prefere WhatsApp
             manager.SendPaymentReminder("+5511888888888", 150.00m, "whatsapp");
 
+            Console.ReadLine();
+
             // Perguntas para reflexão:
             // - Como adicionar novos tipos de notificação (Telegram, Slack) sem modificar NotificationManager?
             // - Como evitar duplicação da lógica condicional em cada método?

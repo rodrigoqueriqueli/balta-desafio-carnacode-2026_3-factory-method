@@ -10,14 +10,12 @@ namespace DesignPatternChallenge
         public string PhoneNumber { get; set; }
         public string Message { get; set; }
 
-        public void Send() { }
         public void SendOrderConfirmation(string recipient, string orderNumber)
         {
             PhoneNumber = recipient;
             Message = $"Pedido {orderNumber} confirmado!";
 
-            Console.WriteLine($"📱 Enviando SMS para {PhoneNumber}");
-            Console.WriteLine($"   Mensagem: {Message}");
+            PrintNotification();
         }
 
         public void SendPaymentReminder(string recipient, decimal amount)
@@ -25,8 +23,7 @@ namespace DesignPatternChallenge
             PhoneNumber = recipient;
             Message = $"Pagamento pendente: R$ {amount:N2}";
 
-            Console.WriteLine($"📱 Enviando SMS para {PhoneNumber}");
-            Console.WriteLine($"   Mensagem: {Message}");
+            PrintNotification();
         }
 
         public void SendShippingUpdate(string recipient, string trackingCode)
@@ -34,6 +31,11 @@ namespace DesignPatternChallenge
             PhoneNumber = recipient;
             Message = $"Pedido enviado! Rastreamento: {trackingCode}";
 
+            PrintNotification();
+        }
+
+        public void PrintNotification()
+        {
             Console.WriteLine($"📱 Enviando SMS para {PhoneNumber}");
             Console.WriteLine($"   Mensagem: {Message}");
         }

@@ -21,9 +21,7 @@ namespace DesignPatternChallenge
             Body = $"Seu pedido {orderNumber} foi confirmado!";
             IsHtml = true;
 
-            Console.WriteLine($"📧 Enviando Email para {Recipient}");
-            Console.WriteLine($"   Assunto: {Subject}");
-            Console.WriteLine($"   Mensagem: {Body}");
+            PrintNotification();
         }
 
         public void SendPaymentReminder(string recipient, decimal amount)
@@ -34,9 +32,7 @@ namespace DesignPatternChallenge
             IsHtml = true;
 
 
-            Console.WriteLine($"📧 Enviando Email para {Recipient}");
-            Console.WriteLine($"   Assunto: {Subject}");
-            Console.WriteLine($"   Mensagem: {Body}");
+            PrintNotification();
         }
 
         public void SendShippingUpdate(string recipient, string trackingCode)
@@ -46,6 +42,11 @@ namespace DesignPatternChallenge
             Body = $"Seu pedido foi enviado! Código de rastreamento: {trackingCode}";
             IsHtml = true;
 
+            PrintNotification();
+        }
+
+        public void PrintNotification()
+        {
             Console.WriteLine($"📧 Enviando Email para {Recipient}");
             Console.WriteLine($"   Assunto: {Subject}");
             Console.WriteLine($"   Mensagem: {Body}");
